@@ -62,10 +62,12 @@ const Home = () => {
         </div>
 
         {/* Floating Elements */}
-        <div className="absolute inset-0 pointer-events-none">
+        <div className="absolute inset-0 pointer-events-none overflow-hidden">
           <div className="absolute top-1/4 left-1/4 w-32 h-32 bg-primary/20 rounded-full blur-3xl animate-float" />
           <div className="absolute bottom-1/4 right-1/4 w-40 h-40 bg-secondary/20 rounded-full blur-3xl animate-float" style={{ animationDelay: '1s' }} />
           <div className="absolute top-1/2 right-1/3 w-24 h-24 bg-accent/20 rounded-full blur-3xl animate-float" style={{ animationDelay: '2s' }} />
+          <div className="absolute top-1/3 right-1/4 w-36 h-36 bg-primary/10 rounded-full blur-3xl animate-float" style={{ animationDelay: '0.5s' }} />
+          <div className="absolute bottom-1/3 left-1/3 w-28 h-28 bg-accent/15 rounded-full blur-3xl animate-float" style={{ animationDelay: '1.5s' }} />
         </div>
       </section>
 
@@ -77,12 +79,13 @@ const Home = () => {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="text-center space-y-4 p-6 rounded-lg glass hover:border-primary/50 border border-transparent transition-all"
+              whileHover={{ scale: 1.05, y: -10 }}
+              className="text-center space-y-4 p-6 rounded-lg glass hover:border-primary/50 border border-transparent transition-all cursor-pointer group"
             >
-              <div className="w-16 h-16 mx-auto rounded-full bg-primary/20 flex items-center justify-center glow-primary">
-                <Zap className="w-8 h-8 text-primary" />
+              <div className="w-16 h-16 mx-auto rounded-full bg-primary/20 flex items-center justify-center glow-primary group-hover:animate-pulse-glow transition-all">
+                <Zap className="w-8 h-8 text-primary group-hover:scale-110 transition-transform" />
               </div>
-              <h3 className="text-xl font-bold">Lightning Fast</h3>
+              <h3 className="text-xl font-bold group-hover:text-primary transition-colors">Lightning Fast</h3>
               <p className="text-muted-foreground">
                 Next-gen processors and cutting-edge technology for unmatched performance
               </p>
@@ -93,12 +96,13 @@ const Home = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.1 }}
-              className="text-center space-y-4 p-6 rounded-lg glass hover:border-secondary/50 border border-transparent transition-all"
+              whileHover={{ scale: 1.05, y: -10 }}
+              className="text-center space-y-4 p-6 rounded-lg glass hover:border-secondary/50 border border-transparent transition-all cursor-pointer group"
             >
-              <div className="w-16 h-16 mx-auto rounded-full bg-secondary/20 flex items-center justify-center glow-secondary">
-                <Shield className="w-8 h-8 text-secondary" />
+              <div className="w-16 h-16 mx-auto rounded-full bg-secondary/20 flex items-center justify-center glow-secondary group-hover:animate-pulse-glow transition-all">
+                <Shield className="w-8 h-8 text-secondary group-hover:scale-110 transition-transform" />
               </div>
-              <h3 className="text-xl font-bold">Secure & Private</h3>
+              <h3 className="text-xl font-bold group-hover:text-secondary transition-colors">Secure & Private</h3>
               <p className="text-muted-foreground">
                 Advanced encryption and security features to protect your data
               </p>
@@ -109,12 +113,13 @@ const Home = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.2 }}
-              className="text-center space-y-4 p-6 rounded-lg glass hover:border-accent/50 border border-transparent transition-all"
+              whileHover={{ scale: 1.05, y: -10 }}
+              className="text-center space-y-4 p-6 rounded-lg glass hover:border-accent/50 border border-transparent transition-all cursor-pointer group"
             >
-              <div className="w-16 h-16 mx-auto rounded-full bg-accent/20 flex items-center justify-center glow-accent">
-                <Sparkles className="w-8 h-8 text-accent" />
+              <div className="w-16 h-16 mx-auto rounded-full bg-accent/20 flex items-center justify-center glow-accent group-hover:animate-pulse-glow transition-all">
+                <Sparkles className="w-8 h-8 text-accent group-hover:scale-110 transition-transform" />
               </div>
-              <h3 className="text-xl font-bold">Premium Design</h3>
+              <h3 className="text-xl font-bold group-hover:text-accent transition-colors">Premium Design</h3>
               <p className="text-muted-foreground">
                 Stunning aesthetics combined with ergonomic engineering
               </p>

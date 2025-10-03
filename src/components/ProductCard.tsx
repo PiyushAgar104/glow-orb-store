@@ -21,29 +21,30 @@ const ProductCard = ({ product, index = 0 }: ProductCardProps) => {
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ delay: index * 0.1 }}
+      whileHover={{ y: -8 }}
     >
-      <Card className="group relative overflow-hidden border-border/50 bg-card/50 backdrop-blur hover:border-primary/50 transition-all duration-300">
+      <Card className="group relative overflow-hidden border-border/50 bg-card/50 backdrop-blur hover:border-primary/50 transition-all duration-300 hover:shadow-[0_20px_40px_hsl(var(--primary)/0.2)]">
         {/* Image Section */}
-        <Link to={`/product/${product.id}`} className="block relative aspect-square overflow-hidden">
+        <Link to={`/product/${product.id}`} className="block relative aspect-square overflow-hidden shine">
           <img
             src={product.image}
             alt={product.name}
-            className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+            className="w-full h-full object-cover transition-all duration-700 group-hover:scale-110 group-hover:rotate-2"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+          <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-primary/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
           
           {/* Quick Actions */}
-          <div className="absolute top-2 right-2 flex flex-col gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
+          <div className="absolute top-2 right-2 flex flex-col gap-2 opacity-0 group-hover:opacity-100 transition-all duration-300 transform group-hover:translate-x-0 translate-x-4">
             <Button
               size="icon"
               variant="secondary"
-              className={`backdrop-blur-sm ${inWishlist ? 'text-accent' : ''}`}
+              className={`backdrop-blur-sm hover:scale-110 transition-transform ${inWishlist ? 'text-accent animate-pulse-glow' : ''}`}
               onClick={(e) => {
                 e.preventDefault();
                 toggleWishlist(product);
               }}
             >
-              <Heart className={`w-4 h-4 ${inWishlist ? 'fill-current' : ''}`} />
+              <Heart className={`w-4 h-4 transition-all ${inWishlist ? 'fill-current' : ''}`} />
             </Button>
           </div>
 
@@ -60,7 +61,7 @@ const ProductCard = ({ product, index = 0 }: ProductCardProps) => {
               {product.category}
             </Badge>
             <Link to={`/product/${product.id}`}>
-              <h3 className="font-semibold text-lg hover:text-primary transition-colors line-clamp-1">
+              <h3 className="font-semibold text-lg hover:text-primary transition-all duration-300 line-clamp-1 group-hover:translate-x-1">
                 {product.name}
               </h3>
             </Link>
@@ -81,13 +82,13 @@ const ProductCard = ({ product, index = 0 }: ProductCardProps) => {
           {/* Price & Action */}
           <div className="flex items-center justify-between">
             <div className="space-y-1">
-              <p className="text-2xl font-bold gradient-text">${product.price}</p>
+              <p className="text-2xl font-bold gradient-text group-hover:scale-110 transition-transform inline-block">${product.price}</p>
             </div>
             <Button
               size="sm"
               onClick={() => addToCart(product)}
               disabled={!product.inStock}
-              className="gap-2 glow-primary"
+              className="gap-2 glow-primary hover:scale-105 transition-all group-hover:animate-bounce-subtle"
             >
               <ShoppingCart className="w-4 h-4" />
               Add
